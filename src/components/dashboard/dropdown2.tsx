@@ -27,29 +27,6 @@ function Dropdown2() {
           className="py-2 text-sm text-[#101828] rounded-[8px] w-[253px] bg-white"
           aria-labelledby="dropdownDefaultButton"
         >
-          <li className="flex justify-center py-2">
-            <svg
-              width="34"
-              height="34"
-              viewBox="0 0 34 34"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="0.425"
-                y="0.425"
-                width="33.15"
-                height="33.15"
-                rx="16.575"
-                stroke="#D9CDFF"
-                stroke-width="0.85"
-              />
-            </svg>
-            <div className="pl-4 w-[fit-content]  font-[400]">
-              Vance Refrigeration
-              <div className="text-[#11A811] text-[12px]">Logged in</div>
-            </div>
-          </li>
           {addBusiness && (
             <>
               <hr />
@@ -135,7 +112,9 @@ function Dropdown2() {
         className="flex items-center cursor-pointer"
         onClick={toggleDropdown}
       >
-        <span className="mx-2 font-[500] text-[#101828]">Vance Refrigeration</span>
+        <span className="mx-2 font-[500] text-[#101828]">
+          Vance Refrigeration
+        </span>
         <svg
           width="16"
           height="16"
@@ -174,64 +153,7 @@ function Dropdown2() {
               <ul
                 className="py-2 text-sm text-[#101828] w-[233px] bg-white"
                 aria-labelledby="dropdownDefaultButton"
-              >
-                <li>
-                  <div className="p-3 cursor-pointer">
-                    <div className="bg-[#F2F4F7] flex items-center justify-between p-3 rounded-[5px]">
-                      <div className="" onClick={toggleDropdown2}>
-                        <div className="text-[#101828]"> Switch account</div>
-                        <div className="text-[12px] text-[#667085]">
-                          {" "}
-                          Access your other businesses
-                        </div>
-                      </div>
-                      <svg
-                        width="10"
-                        height="6"
-                        viewBox="0 0 10 6"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M8.94667 0.453369H4.79333H1.05333C0.413333 0.453369 0.0933335 1.2267 0.546667 1.68004L4 5.13337C4.55333 5.6867 5.45333 5.6867 6.00667 5.13337L7.32 3.82004L9.46 1.68004C9.90667 1.2267 9.58667 0.453369 8.94667 0.453369Z"
-                          fill="#292D32"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  {<SubBusinessDropdown />}
-                </li>
-                <li className="font-normal">
-                  <a
-                    href="#"
-                    className="flex items-center block px-4 py-4 pt-1 font-normal"
-                  >
-                    <span className="mr-3">
-                      <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          opacity="0.4"
-                          d="M9 9C11.0711 9 12.75 7.32107 12.75 5.25C12.75 3.17893 11.0711 1.5 9 1.5C6.92893 1.5 5.25 3.17893 5.25 5.25C5.25 7.32107 6.92893 9 9 9Z"
-                          fill="#98A2B3"
-                        />
-                        <path
-                          d="M2.5575 16.5C2.5575 13.6665 5.3787 11.25 9 11.25C12.6213 11.25 15.4425 13.6665 15.4425 16.5H2.5575Z"
-                          fill="#98A2B3"
-                          stroke="#98A2B3"
-                          stroke-width="0.75"
-                        />
-                      </svg>
-                    </span>{" "}
-                    Manage account
-                  </a>
-                </li>
-                <hr />
-                <li className="font-normal">
+              >  <li className="font-normal">
                   <a href="#" className="flex items-center block px-4 py-4 ">
                     <span className="mr-3">
                       <svg
