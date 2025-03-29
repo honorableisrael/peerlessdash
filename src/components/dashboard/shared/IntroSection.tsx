@@ -1,4 +1,4 @@
-import Dropdown from "../dropdown";
+
 
 const IntroSection = ({ item }: any) => {
   return (
@@ -116,7 +116,7 @@ const IntroSection = ({ item }: any) => {
           </span>
         </div>
         <div className="text-[14px] hidden sm:flex sm:flex-nowrap flex-wrap">
-          <button className="w-[153px] h-[40px] mr-2 border-none text-[#5E01D6] bg-[#D7CEFB] flex items-center px-5 rounded-[6px] font-semibold">
+          <button className="w-[153px] h-[40px] mr-2 border-none text-[#5E01D6] bg-[#D7CEFB] flex items-center justify-center px-5 sm:px-3 rounded-[6px] font-semibold whitespace-nowrap min-w-max flex-nowrap">
             <svg
               width="20"
               height="20"
@@ -133,9 +133,10 @@ const IntroSection = ({ item }: any) => {
                 fill="#5E01D6"
               />
             </svg>
-            <span className="ml-2 min-w-[fit-content]">Send money</span>
+            <span className="ml-2 text-sm sm:text-base min-w-[fit-content]">
+              Send money
+            </span>
           </button>
-          <Dropdown />
         </div>
       </div>
     </>

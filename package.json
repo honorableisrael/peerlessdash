@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-transition-group": "^4.4.11"
+    "@types/react-transition-group": "^4.4.11",
+    "react-router-dom": "^7.4.1"
   }
 }

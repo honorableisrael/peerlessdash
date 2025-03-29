@@ -113,7 +113,7 @@ function Dropdown2() {
         onClick={toggleDropdown}
       >
         <span className="mx-2 font-[500] text-[#101828]">
-          Vance Refrigeration
+          David Moses
         </span>
         <svg
           width="16"

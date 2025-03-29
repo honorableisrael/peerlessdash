@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SideNav from "react-simple-sidenav";
 import logo from "../../../assets/Tradevu Logo.svg";
-import Dropdown2 from "../dropdown2";
+import Dropdown2 from "./dropdown2";
 
 interface DashboardNavProps {
   showNav: boolean;
@@ -64,16 +64,15 @@ const DashboardNav = ({ showNav, setShowNav }: DashboardNavProps) => {
                   <path
                     d="M23.4575 38.5425L38.5425 23.4575"
                     stroke="#292D32"
-                    stroke-width="2.82843"
+                    strokeWidth="2.82843"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
                   <path
                     d="M38.5425 38.5425L23.4575 23.4575"
                     stroke="#292D32"
-                    stroke-width="2.82843"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2.82843"
+                    strokeLinecap="round"
                   />
                 </svg>
               </span>

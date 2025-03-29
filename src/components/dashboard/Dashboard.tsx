@@ -1,11 +1,7 @@
 import React from "react";
-import Dropdown from "./dropdown";
-import Dropdown2 from "./dropdown2";
-import DropdownNotification from "./dropdownnotification";
 import Nav from "./shared/Navbar";
 import ItemCard from "./shared/Cards";
-import RecentTransactions from "./shared/RecentTransactions";
-import PendingActions from "./shared/PendingActions";
+import TaskRecords from "./shared/TaskRecords";
 import IntroSection from "./shared/IntroSection";
 
 const Dashboard = () => {
@@ -20,10 +16,14 @@ const Dashboard = () => {
       <Nav />
       <div className="bg-[#F9FAFB]">
         <div className="sm:w-[90%] w-full m-auto pb-8 sm:py-8">
-          <IntroSection/>
-          <div className="flex flex-wrap gap-4">
+          <IntroSection />
+          <div className=" flex-wrap justify-between hidden md:flex">
             {items.map((item, index) => (
-              <ItemCard key={index} item={item} />
+              <ItemCard
+                key={index}
+                item={item}
+                className="w-[calc(50%-8px)] sm:w-auto"
+              />
             ))}
           </div>
           <div className="flex text-[14px] sm:hidden mt-[.5rem] sm:mt-6 p-[1rem] sm:p-0 sm:justify-start justify-center ">
@@ -46,14 +46,10 @@ const Dashboard = () => {
               </svg>
               <span className="ml-2">Send money</span>
             </button>
-            <Dropdown />
           </div>
-
-          {/* Recent transaction and pending transaction */}
           <div className="flex flex-wrap justify-between mt-5 mb-3 sm:flex-nowrap sm:mb-0">
-            {/* <RecentTransactions/> */}
-            <PendingActions/>
-            <PendingActions/>
+            {/* Focus of the test */}
+            <TaskRecords />
           </div>
         </div>
       </div>

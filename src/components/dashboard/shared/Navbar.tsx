@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../../assets/Tradevu Logo.svg";
-import Dropdown2 from "../dropdown2";
-import DropdownNotification from "../dropdownnotification";
+import Dropdown2 from "./dropdown2";
+import DropdownNotification from "./dropdownnotification";
 import DashboardNav from "./mobile_navbar";
 
 const Nav = () => {
