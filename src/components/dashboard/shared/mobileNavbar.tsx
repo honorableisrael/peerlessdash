@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SideNav from "react-simple-sidenav";
 import logo from "../../../assets/Tradevu Logo.svg";
-import Dropdown2 from "./dropdown2";
+import Dropdown from "./dropdown";
 
 interface DashboardNavProps {
   showNav: boolean;
@@ -109,7 +109,7 @@ const DashboardNav = ({ showNav, setShowNav }: DashboardNavProps) => {
                     </div>
                     <div className="flex items-center justify-end mt-8 mr-4">
                       <div className="w-[34px] h-[34px] rounded-[50%] border border-[rgba(234, 236, 240, 1)] mr-2 sm:flex"></div>{" "}
-                      <Dropdown2 />
+                      <Dropdown />
                     </div>
                   </div>
                 </div>

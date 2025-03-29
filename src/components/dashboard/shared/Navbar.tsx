@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import logo from "../../../assets/Tradevu Logo.svg";
-import Dropdown2 from "./dropdown2";
-import DropdownNotification from "./dropdownnotification";
-import DashboardNav from "./mobile_navbar";
+import Dropdown from "./dropdown";
+import DashboardNav from "./mobileNavbar";
+import DropdownNotification from "./dropdownNotification";
 
 const Nav = () => {
   const [showNav, setShowNav]: any = useState(false);
@@ -71,9 +71,9 @@ const Nav = () => {
             <DropdownNotification />
           </div>
           <div className="flex items-center ml-5">
-            <div className="w-[34px] h-[34px] rounded-[50%] border border-[rgba(234, 236, 240, 1)] mr-2 hidden sm:flex"></div>
+            {/* <div className="w-[34px] h-[34px] rounded-[50%] border border-[rgba(234, 236, 240, 1)] mr-2 hidden sm:flex"></div> */}
             <div className="hidden sm:flex">
-              <Dropdown2 />
+              <Dropdown />
             </div>
           </div>
         </div>

@@ -1,35 +1,87 @@
+import React from "react";
+import styled from "styled-components";
 
+const CardContainer = styled.div`
+  min-width: 321px;
+  @media (min-width: 768px) {
+    min-width: 24%;
+  }
+  @media (max-width: 900px) {
+   margin-bottom:.8rem;
+  }
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
 
-const ItemCard = ({ item }:any) => {
+const CardContent = styled.div`
+  padding: 1rem;
+  @media (min-width: 640px) {
+    padding: 1.75rem;
+  }
+  border: 1px solid #f4f0ff;
+  border-radius: 10px;
+`;
+
+const Title = styled.div`
+  font-weight: 500;
+  font-size: 1.125rem;
+`;
+
+const Amount = styled.div`
+  font-size: 32px;
+  margin-top: 0.5rem;
+  font-weight: 600;
+`;
+
+const Currency = styled.span`
+  font-size: 24px;
+  color: #667085;
+  margin: 0 0.25rem;
+`;
+
+const Info = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  font-size: 16px;
+  color: #4b5563;
+`;
+
+const Icon = styled.svg`
+  width: 16px;
+  height: 17px;
+  cursor: pointer;
+  color: #2563eb;
+  &:hover {
+    color: #1e40af;
+  }
+`;
+interface Item {
+  title: string;
+  amount: number;
+  phone: string;
+}
+
+interface ItemCardProps {
+  item: Item;
+  className?:string;
+}
+const ItemCard: React.FC<ItemCardProps> = ({ item }) => { 
   return (
-    <div className="min-w-[321px] md:min-w-[24%] bg-white rounded-[10px] shadow-md">
-      <div className="p-4 sm:p-7 border border-[#F4F0FF] rounded-lg">
-        <div className="font-medium text-lg">{item.title}</div>
-        <div className="text-[32px] mt-2 font-semibold">
-          <span className="text-[#667085] text-[24px] mr-1">₦</span>
+    <CardContainer>
+      <CardContent>
+        <Title>{item.title}</Title>
+        <Amount>
+          <Currency>₦</Currency>
           {item.amount}
-          <span className="text-[#667085] text-[24px] ml-1">.20</span>
-        </div>
-        <div className="flex items-center mt-2 text-[16px] text-gray-700">
-          <span className="mr-1">{item.phone}</span>
-          <svg
-            width="16"
-            height="17"
-            viewBox="0 0 16 17"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="cursor-pointer text-blue-600 hover:text-blue-800"
-          >
-            <path
-              d="M10.6666 9.10001V11.9C10.6666 14.2333 9.73331 15.1667 7.39998 15.1667H4.59998C2.26665 15.1667 1.33331 14.2333 1.33331 11.9V9.10001C1.33331 6.76668 2.26665 5.83334 4.59998 5.83334H7.39998C9.73331 5.83334 10.6666 6.76668 10.6666 9.10001Z"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
+          <Currency>.20</Currency>
+        </Amount>
+        <Info>
+          <span>{item.phone}</span>
+        </Info>
+      </CardContent>
+    </CardContainer>
   );
 };
 

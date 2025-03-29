@@ -6,10 +6,10 @@ import IntroSection from "./shared/IntroSection";
 
 const Dashboard = () => {
   const items = [
-    { title: "Item 1", amount: 5000, phone: "08012345678" },
-    { title: "Item 2", amount: 7500, phone: "08123456789" },
-    { title: "Item 3", amount: 6200, phone: "09098765432" },
-    { title: "Item 4", amount: 7200, phone: "09098765432" },
+    { title: "Item 1", amount: 5000, phone: "" },
+    { title: "Item 2", amount: 7500, phone: "" },
+    { title: "Item 3", amount: 6200, phone: "" },
+    { title: "Item 4", amount: 7200, phone: "" },
   ];
   return (
     <>

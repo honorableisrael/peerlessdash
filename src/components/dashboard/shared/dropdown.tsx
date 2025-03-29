@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
-function Dropdown2() {
+function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [addBusiness, setAddBusiness] = useState(false);
@@ -113,7 +113,7 @@ function Dropdown2() {
         onClick={toggleDropdown}
       >
         <span className="mx-2 font-[500] text-[#101828]">
-          David Moses
+          John Doe
         </span>
         <svg
           width="16"
@@ -186,4 +186,4 @@ function Dropdown2() {
   );
 }
 
-export default Dropdown2;
+export default Dropdown;
