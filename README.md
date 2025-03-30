@@ -1,102 +1,85 @@
-# Getting Started
+# PeerlessDash
 
-This project was deployed to https://dashboardbuild-jn42.vercel.app/
+![alt text](image.png)
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
-### `npm install`
-or
-### `npm install --force`
+PeerlessDash is a task management dashboard that allows users to view, filter, sort, and update task statuses efficiently. The application is built using React and TypeScript, with state management handled via the Context API. The project is designed to provide an intuitive user experience with responsive UI components.
 
-### `npm start`
+## Live Deployment
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project is deployed at for easy access : [PeerlessDash on Vercel](https://dashboardbuild-jn42.vercel.app/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Fetches tasks from the `TaskContext`
+- Displays a list of tasks with filtering and sorting options
+- Allows users to update the status of a task
+- Shows a modal for task details and updates
+- Displays a success modal after status changes
+- Responsive design for better accessibility on different screen sizes
 
-Launches the test runner in the interactive watch mode.
+## Running the Application
 
-Test files are in the test folder
+### Prerequisites
+- Node.js (v16 or later recommended)
+- npm or yarn
 
-### `npm run build`
+### Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/honorableisrael/peerlessdash.git
+   cd peerlessdash
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+   Or force installation if necessary:
+   ```sh
+   npm install --force
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Development Server
+To start the application in development mode:
+```sh
+npm start
+```
+This will launch the app at [http://localhost:3000](http://localhost:3000).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-## Learn More
+### Running Tests
+To run tests:
+```sh
+npm test
+```
+Test files are located in the `test` folder.
 
+### Building for Production
+To generate a production-ready build:
+```sh
+npm run build
+```
+The optimized build will be available in the `build` directory.
 
-Overview
+## State Management
+The application utilizes the Context API for global state management.
 
-The TaskRecords component is a React functional component that displays a list of tasks. It provides filtering, sorting, and status update functionality. Users can view task details, change task status, and see success messages after updates.
+- `TaskContext`: Manages tasks, loading state, and errors.
+- `useTaskContext()`: Provides access to tasks and update functions.
 
-Features
-
-Fetches tasks from the TaskContext
-
-Displays a list of tasks with filtering and sorting options
-
-Allows users to update the status of a task
-
-Shows a modal for task details and updates
-
-Displays a success modal after status changes
-
-Dependencies
-
-React
-
-TypeScript
-
-TailwindCSS (or similar utility classes for styling)
-
-Context API (useTaskContext) for state management
-
-Props & Context
-
-This component does not receive any props directly. Instead, it uses the useTaskContext() hook to access:
-
-tasks: The list of tasks
-
-loading: Loading state
-
-updateTaskStatus(taskId, status): Function to update a task's status
-
-Component Breakdown
-
-Task List: Displays tasks with title, description, due date, and status.
-
-Filters & Sorting: Users can filter by task status and toggle ascending/descending sorting.
-
-Task Modal: Opens when a task is clicked, allowing status updates.
-
-Success Modal: Appears after a successful update.
-
-Usage Guide
-
-Ensure the TaskContext provider wraps the application.
-
-Click on a task to open the modal and update its status.
-
-Use the filter dropdown to view specific task statuses.
-
-Click the sort button to change the sorting order.
-
-Example Task Data Structure
-
+### Example Task Data Structure
+```ts
 interface Task {
-  id: string;
+  id: number;
   title: string;
   description: string;
   status: "Pending" | "In Progress" | "Completed";
   dueDate: string;
 }
+```
 
-License
+## Design Decisions & Trade-offs
+- Context API: Used for state management to avoid unnecessary prop drilling.
+- Axios: Chosen for API requests due to better error handling.
+- Responsive UI: TailwindCSS used for styling to ensure consistency across screen sizes.
+- Testing: Included unit tests for key components to ensure reliability.
