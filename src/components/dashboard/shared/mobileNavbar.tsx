@@ -9,13 +9,6 @@ interface DashboardNavProps {
 }
 
 const DashboardNav = ({ showNav, setShowNav }: DashboardNavProps) => {
-  const [state, setState] = React.useState({
-    NavisOpen: false,
-    theUserIsLoggedIn: false,
-    isloading: false,
-    user_details: {},
-  });
-
   return (
     <div className="fixfdnav">
       <div className="navwrap nav__wrap navwrap_cont">

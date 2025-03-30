@@ -1,4 +1,4 @@
-const IntroSection = ({ item }: any) => {
+const IntroSection = () => {
   return (
     <>
       <div className="block sm:hidden bg-[#EEF4FF] p-5 px-2 mb-8">

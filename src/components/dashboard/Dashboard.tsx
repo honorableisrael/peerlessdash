@@ -1,4 +1,3 @@
-import React from "react";
 import Nav from "./shared/Navbar";
 import ItemCard from "./shared/Cards";
 import TaskRecords from "./shared/TaskRecords";
