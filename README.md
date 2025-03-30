@@ -78,8 +78,8 @@ interface Task {
 }
 ```
 
-## Design Decisions & Trade-offs
-- Context API: Used for state management to avoid unnecessary prop drilling.
+## Design Decisions
+- Context API: Used for state management due to the size of the project.
 - Axios: Chosen for API requests due to better error handling.
-- Responsive UI: TailwindCSS used for styling to ensure consistency across screen sizes.
+- Responsive UI: TailwindCSS and Styled Component used to achieve responsiveness across different screen sizes.
 - Testing: Included unit tests for key components to ensure reliability.
