@@ -47,7 +47,7 @@ function DropdownNotification() {
             <div
               ref={nodeRef}
               id="dropdown"
-              className={`absolute z-10 border border-[#E7E9FB] mt-2 bg-white divide-y right-[0px] sm:right-[17rem] divide-gray-100 rounded-lg shadow sm:w-[330px] md:w-[400px]`}
+              className={`absolute z-10 border border-[#E7E9FB] mt-2 bg-white divide-y right-[0px] sm:right-[13rem] divide-gray-100 rounded-lg shadow sm:w-[330px] md:w-[400px]`}
             >
               <ul
                 className="py-2 text-sm text-[#101828]"

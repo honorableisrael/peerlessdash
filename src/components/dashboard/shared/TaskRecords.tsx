@@ -1,11 +1,159 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { Task, useTaskContext } from "./TaskContext";
 import TaskModal from "./TaskModal";
 import SuccessModal from "./SuccessModal";
 
+const Container = styled.div`
+  width: 100%;
+  height: fit-content;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
+const Header = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  @media (max-width: 568px) {
+    justify-content: center;
+  }
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+`;
+
+const TaskCount = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 0.6rem;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #374151;
+`;
+
+const Controls = styled.div`
+  display: flex;
+  // flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: auto;
+  }
+  @media (max-width: 568px) {
+    justify-content: center;
+  }
+
+  select,
+  button {
+    width: 130px;
+    min-width: 90px;
+    padding:0rem .8rem;
+  }
+`;
+
+const Select = styled.select`
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+`;
+
+const Button = styled.button`
+  width: 143px;
+  height: 40px;
+  border: none;
+  color: #5e01d6;
+  background: #d7cefb;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  &:hover {
+    background: #b8a4f5;
+  }
+`;
+
+const TaskGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+`;
+
+const TaskCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 100%;
+  &:hover {
+    background: #f3f4f6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+`;
+
+const TaskTitle = styled.div`
+  font-weight: 600;
+  font-size: 1.1rem;
+`;
+
+const TaskDescription = styled.div`
+  font-size: 0.875rem;
+  color: #6b7280;
+  flex-grow: 1;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+`;
+
+const TaskFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+`;
+
+const StatusBadge = styled.span<{
+  status: "Completed" | "In Progress" | "Pending";
+}>`
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: ${({ status }) =>
+    status === "Completed"
+      ? "#065F46"
+      : status === "In Progress"
+      ? "#92400E"
+      : "#9B1C1C"};
+  background-color: ${({ status }) =>
+    status === "Completed"
+      ? "#D1FAE5"
+      : status === "In Progress"
+      ? "#FEF3C7"
+      : "#FECACA"};
+`;
+
 const TaskRecords: React.FC = () => {
   const { tasks, loading, error, updateTaskStatus } = useTaskContext();
-
   const [filterStatus, setFilterStatus] = useState<string>("All");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
@@ -20,7 +168,9 @@ const TaskRecords: React.FC = () => {
   };
 
   const filteredTasks = tasks
-    .filter((task) => (filterStatus === "All" ? true : task.status === filterStatus))
+    .filter((task) =>
+      filterStatus === "All" ? true : task.status === filterStatus
+    )
     .sort((a, b) =>
       sortOrder === "asc"
         ? a.dueDate.localeCompare(b.dueDate)
@@ -31,20 +181,14 @@ const TaskRecords: React.FC = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="w-full h-fit p-6 rounded-lg bg-white shadow-lg">
-      <div className="flex flex-wrap items-center justify-between font-semibold mb-4">
-        <div className="w-full sm:w-auto flex justify-between sm:justify-start items-center mb-2 sm:mb-0">
-          <span className="text-gray-600 flex items-center">
-            Task List
-            <span className="ml-2 flex items-center justify-center min-w-[40px] h-[40px] px-3 rounded-full bg-gray-200 text-gray-800">
-              {filteredTasks.length}
-            </span>
-          </span>
-        </div>
-
-        <div className="w-full sm:w-auto flex gap-4 justify-start sm:justify-end">
-          <select
-            className="px-3 py-1 border rounded w-full sm:w-auto"
+    <Container>
+      <Header>
+        <TitleContainer>
+          Task List
+          <TaskCount>{filteredTasks.length}</TaskCount>
+        </TitleContainer>
+        <Controls>
+          <Select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
           >
@@ -52,56 +196,42 @@ const TaskRecords: React.FC = () => {
             <option value="Pending">Pending</option>
             <option value="In Progress">In Progress</option>
             <option value="Completed">Completed</option>
-          </select>
-          <button
-            className="w-[143px] h-[40px] border-none text-[#5E01D6] bg-[#D7CEFB] flex items-center justify-center px-5 sm:px-3 rounded-[6px] font-semibold whitespace-nowrap min-w-max flex-nowrap"
+          </Select>
+          <Button
             onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
           >
             Sort ({sortOrder})
-          </button>
-        </div>
-      </div>
+          </Button>
+        </Controls>
+      </Header>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <TaskGrid>
         {filteredTasks.map((task) => (
-          <div
-            key={task.id}
-            className="p-4 rounded-lg shadow-lg bg-gray-50 cursor-pointer hover:shadow-xl hover:bg-gray-100 transition-all flex flex-col h-full"
-            onClick={() => setSelectedTask(task)}
-          >
-            <div className="flex-1">
-              <div className="text-lg font-semibold">{task.title}</div>
-              <div className="text-sm text-gray-500">{task.description}</div>
-            </div>
-
-            <div className="mt-4 pt-2 border-t flex justify-between items-center">
-              <span
-                className={`px-2 py-1 rounded ${
-                  task.status === "Completed"
-                    ? "bg-green-200 text-green-800"
-                    : task.status === "In Progress"
-                    ? "bg-yellow-200 text-yellow-800"
-                    : "bg-red-200 text-red-800"
-                }`}
-              >
-                {task.status}
-              </span>
-              <span className="text-gray-600 text-sm">
-                Due: {new Date(task.dueDate).toLocaleDateString()}
-              </span>
-            </div>
-          </div>
+          <TaskCard key={task.id} onClick={() => setSelectedTask(task)}>
+            <TaskTitle>{task.title}</TaskTitle>
+            <TaskDescription>{task.description}</TaskDescription>
+            <TaskFooter>
+              <StatusBadge status={task.status}>{task.status}</StatusBadge>
+              <span>Due: {new Date(task.dueDate).toLocaleDateString()}</span>
+            </TaskFooter>
+          </TaskCard>
         ))}
-      </div>
+      </TaskGrid>
 
       {selectedTask && (
-        <TaskModal task={selectedTask} onClose={() => setSelectedTask(null)} onSubmit={handleSubmit} />
+        <TaskModal
+          task={selectedTask}
+          onClose={() => setSelectedTask(null)}
+          onSubmit={handleSubmit}
+        />
       )}
-
       {showSuccessModal && (
-        <SuccessModal message="Task status updated successfully." onClose={() => setShowSuccessModal(false)} />
+        <SuccessModal
+          message="Task status updated successfully."
+          onClose={() => setShowSuccessModal(false)}
+        />
       )}
-    </div>
+    </Container>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SideNav from "react-simple-sidenav";
-import logo from "../../../assets/Tradevu Logo.svg";
-import Dropdown from "./dropdown";
+import logo from "../../../assets/peerlesslogo.png";
+import Dropdown from "./Dropdown";
 
 interface DashboardNavProps {
   showNav: boolean;
@@ -52,7 +52,7 @@ const DashboardNav = ({ showNav, setShowNav }: DashboardNavProps) => {
                 padding: "10px 3px 3px 0px",
               }}
             >
-              <img src={logo} alt="logo" className="logo2" />
+              <img src={logo} alt="logo" className="logo2 w-[140px] mt-4" />
               <span className="fa fa-close" onClick={() => setShowNav(false)}>
                 <svg
                   width="62"

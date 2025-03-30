@@ -6,8 +6,8 @@ const CardContainer = styled.div`
   @media (min-width: 768px) {
     min-width: 24%;
   }
-  @media (max-width: 900px) {
-   margin-bottom:.8rem;
+  @media (max-width: 980px) {
+   display:none;
   }
   background: white;
   border-radius: 10px;

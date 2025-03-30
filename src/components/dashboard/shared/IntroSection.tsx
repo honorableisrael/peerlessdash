@@ -1,5 +1,3 @@
-
-
 const IntroSection = ({ item }: any) => {
   return (
     <>
@@ -23,14 +21,14 @@ const IntroSection = ({ item }: any) => {
           </svg>{" "}
           Your account isn’t fully activated.
         </div>
-        <div className="flex justify-center min-w-[fit-content]">
-          <span className=" text-[#2C53F2] mr-1 min-w-[fit-content]">
+        <div className="flex flex-wrap justify-center text-center min-w-0">
+          <span className="text-[#2C53F2] mr-1 break-words">
             Complete registration
-          </span>{" "}
+          </span>
           to access all benefits.
         </div>
       </div>
-      <div className="flex text-[16px] font-[800] !text-[#344054] p-[1rem] py-0 sm:py-[1rem] sm:p-0">
+      <div className="flex text-[16px] sm:justify-start justify-center font-[800] !text-[#344054] p-[1rem] py-0 sm:py-[1rem] sm:p-0">
         Hello John,{" "}
         <span className="ml-2">
           <svg
@@ -65,12 +63,11 @@ const IntroSection = ({ item }: any) => {
           </svg>
         </span>
       </div>
-      <div className="flex justify-between">
+      <div className="flex sm:justify-between  justify-center">
         <div className="flex items-center text-[#667085] p-[1rem] py-0 sm:py-[1rem] !pt-0 sm:p-0">
-        Overview of your recent activity
+          Overview of your recent activity
         </div>
-        <div className="text-[14px] hidden sm:flex sm:flex-nowrap flex-wrap">
-        </div>
+        <div className="text-[14px] hidden sm:flex sm:flex-nowrap flex-wrap"></div>
       </div>
     </>
   );
