@@ -1,10 +1,13 @@
-# Getting Started with Create React App
+# Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was deployed to https://dashboardbuild-jn42.vercel.app/
 
 ## Available Scripts
 
 In the project directory, you can run:
+### `npm install`
+or
+### `npm install --force`
 
 ### `npm start`
 
@@ -26,21 +29,71 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
 ## Learn More
+Overview
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The TaskRecords component is a React functional component that displays a list of tasks. It provides filtering, sorting, and status update functionality. Users can view task details, change task status, and see success messages after updates.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Features
+
+Fetches tasks from the TaskContext
+
+Displays a list of tasks with filtering and sorting options
+
+Allows users to update the status of a task
+
+Shows a modal for task details and updates
+
+Displays a success modal after status changes
+
+Dependencies
+
+React
+
+TypeScript
+
+TailwindCSS (or similar utility classes for styling)
+
+Context API (useTaskContext) for state management
+
+Props & Context
+
+This component does not receive any props directly. Instead, it uses the useTaskContext() hook to access:
+
+tasks: The list of tasks
+
+loading: Loading state
+
+updateTaskStatus(taskId, status): Function to update a task's status
+
+Component Breakdown
+
+Task List: Displays tasks with title, description, due date, and status.
+
+Filters & Sorting: Users can filter by task status and toggle ascending/descending sorting.
+
+Task Modal: Opens when a task is clicked, allowing status updates.
+
+Success Modal: Appears after a successful update.
+
+Usage Guide
+
+Ensure the TaskContext provider wraps the application.
+
+Click on a task to open the modal and update its status.
+
+Use the filter dropdown to view specific task statuses.
+
+Click the sort button to change the sorting order.
+
+Example Task Data Structure
+
+interface Task {
+  id: string;
+  title: string;
+  description: string;
+  status: "Pending" | "In Progress" | "Completed";
+  dueDate: string;
+}
+
+License
