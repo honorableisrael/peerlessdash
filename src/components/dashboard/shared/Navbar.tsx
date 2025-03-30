@@ -10,7 +10,7 @@ const Nav = () => {
     <div className="border">
       <div className="flex justify-between text-[16px] bg-white items-center sm:w-[90%] w-full m-auto py-9 ">
         <span className="pl-[1rem] sm:p-0 flex justify-between sm:block sm:w-[initial] w-full">
-          <img src={logo} alt="logo" className="w-[140px] ml-[-6px]" />
+          <img src={logo} alt="logo" className="w-[140px]" />
           <span className="flex items-center sm:hidden">
             <DropdownNotification />
             <span
